@@ -20,17 +20,21 @@ const useBreedList = animal => {
     requestBreedList();
 
     async function requestBreedList() {
-      setBreedList([]);
-      setStatus('loading');
+      try {
+        setBreedList([]);
+        setStatus('loading');
 
-      const res = await fetch(
-        `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
-      );
-      const animalData = await res.json();
+        const res = await fetch(
+          `http://pets-v2.dev-apis.com/breeds?animal=${animal}`
+        );
+        const animalData = await res.json();
 
-      localCache[animal] = animalData.breeds || [];
-      setBreedList(localCache[animal]);
-      setStatus['loaded'];
+        localCache[animal] = animalData.breeds || [];
+        setBreedList(localCache[animal]);
+        setStatus['loaded'];
+      } catch (error) {
+        console.error(error);
+      }
     }
   }, [animal]);
 
