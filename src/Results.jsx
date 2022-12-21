@@ -1,6 +1,5 @@
 import Pet from './Pet';
 const Results = ({ pets }) => {
-  console.log(pets);
   return (
     <div className='search'>
       {!pets.length ? (
