@@ -1,6 +1,6 @@
 import Pet from './Pet';
-
 const Results = ({ pets }) => {
+  console.log(pets);
   return (
     <div className='search'>
       {!pets.length ? (
@@ -9,6 +9,7 @@ const Results = ({ pets }) => {
         pets.map(pet => (
           <Pet
             key={pet.id}
+            id={pet.id}
             animal={pet.animal}
             name={pet.name}
             breed={pet.breed}
