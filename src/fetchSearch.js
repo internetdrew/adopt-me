@@ -6,7 +6,9 @@ const fetchSearch = async ({ queryKey }) => {
   );
 
   if (!apiRes.ok) {
-    throw new Error(`search response for ${animal} ${location} ${breed}not ok`);
+    throw new Error(
+      `search response for ${breed} ${animal}s in ${location} not ok`
+    );
   }
 
   return apiRes.json();
