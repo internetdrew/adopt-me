@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import fetchPet from './fetchPet';
+import { capFirstLetter } from './utilities';
 
 const Details = () => {
   const { id } = useParams();
@@ -21,7 +22,7 @@ const Details = () => {
       <div>
         <h1>{pet.name}</h1>
         <h2>
-          {pet.animal} — {pet.breed} — {pet.city}, {pet.state}
+          {capFirstLetter(pet.animal)} — {pet.breed} — {pet.city}, {pet.state}
           <button>Adopt {pet.name}</button>
           <p>{pet.description}</p>
         </h2>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { capFirstLetter } from './utilities';
 
 const Pet = ({ animal, name, breed, location, id, images }) => {
   let hero = `http://pets-images.dev-apis.com/pets/none.jpg`;
@@ -14,7 +15,7 @@ const Pet = ({ animal, name, breed, location, id, images }) => {
       <div className='info'>
         <h1>{name}</h1>
         <h2>
-          {animal} — {breed} — {location}
+          {capFirstLetter(animal)} — {breed} — {location}
         </h2>
       </div>
     </Link>
